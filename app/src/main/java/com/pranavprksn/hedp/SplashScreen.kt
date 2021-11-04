@@ -12,18 +12,17 @@ class SplashScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
 
-
         val tapView = findViewById<TextView>(R.id.tap)
         val animView = findViewById<LottieAnimationView>(R.id.animationView)
 
-        tapView.setOnClickListener{
+        tapView.setOnClickListener {
             Toast.makeText(applicationContext, "Setting up!", Toast.LENGTH_SHORT).show()
 
             intent = Intent(applicationContext, Home::class.java)
             startActivity(intent)
         }
 
-        animView.setOnClickListener{
+        animView.setOnClickListener {
             Toast.makeText(applicationContext, "Setting up!", Toast.LENGTH_SHORT).show()
 
             intent = Intent(applicationContext, Home::class.java)

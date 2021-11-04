@@ -21,8 +21,6 @@ public class file {
         File f = null;
         boolean bool = false;
         try {
-
-
             f = new File(FILENAME);
 
             bool = f.createNewFile();

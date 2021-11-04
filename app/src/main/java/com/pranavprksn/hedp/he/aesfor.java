@@ -15,59 +15,46 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 
 public class aesfor {
- 
+
     private static SecretKeySpec secretKey;
     private static byte[] key;
-    private  final String secret= "minor2";
-    
-    public void setKey(String myKey) 
-    {
+    private final String secret = "minor2";
+
+    public void setKey(String myKey) {
         MessageDigest sha = null;
         try {
             key = myKey.getBytes("UTF-8");
             sha = MessageDigest.getInstance("SHA-1");
             key = sha.digest(key);
-            key = Arrays.copyOf(key, 16); 
+            key = Arrays.copyOf(key, 16);
             secretKey = new SecretKeySpec(key, "AES");
-        } 
-        catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        } 
-        catch (UnsupportedEncodingException e) {
+        } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
             e.printStackTrace();
         }
     }
- 
+
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public String encrypt(String strToEncrypt)
-    {
-        try
-        {
+    public String encrypt(String strToEncrypt) {
+        try {
             setKey(secret);
             Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
             cipher.init(Cipher.ENCRYPT_MODE, secretKey);
             return Base64.getEncoder().encodeToString(cipher.doFinal(strToEncrypt.getBytes("UTF-8")));
-        } 
-        catch (Exception e) 
-        {
-            Log.d("Error while encrypting:" , e.toString());
+        } catch (Exception e) {
+            Log.d("Error while encrypting:", e.toString());
         }
         return null;
     }
- 
+
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public  String decrypt(String strToDecrypt)
-    {
-        try
-        {
+    public String decrypt(String strToDecrypt) {
+        try {
             setKey(secret);
             Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5PADDING");
             cipher.init(Cipher.DECRYPT_MODE, secretKey);
             return new String(cipher.doFinal(Base64.getDecoder().decode(strToDecrypt)));
-        } 
-        catch (Exception e) 
-        {
-            Log.d("Error while decrypting:" , e.toString());
+        } catch (Exception e) {
+            Log.d("Error while decrypting:", e.toString());
         }
         return null;
     }
