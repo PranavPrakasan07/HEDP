@@ -15,19 +15,6 @@ class Home : AppCompatActivity() {
 
     private val TAG = "TAG"
 
-    var message: TextView? = null
-    var progressBar: ProgressBar? = null
-
-    private val ip = "192.168.43.205"
-    private val port = "1433"
-    private val Classes = "net.sourceforge.jtds.jdbc.Driver"
-    private val database = "datbase"
-    private val username = "test"
-    private val password = "test"
-    private val url = "jdbc:jtds:sqlserver://$ip:$port/$database"
-
-    private var connection: Connection? = null
-
     private val FILENAME = "encryption key location"
     var paillier: pailier? = null
     var aesen: aesfor? = null
@@ -37,8 +24,6 @@ class Home : AppCompatActivity() {
     var entered_text = "email"
 
     var encrypted_text: BigInteger? = null
-
-    var flag = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -100,16 +85,12 @@ class Home : AppCompatActivity() {
             val ena = paillier!!.EncrypStr(entered_text, r)
 
             Log.d("ena", ena.toString())
-            Toast.makeText(
-                applicationContext,
-                "ena$ena",
+            Toast.makeText(applicationContext,"ena$ena",
                 Toast.LENGTH_SHORT
             ).show()
 
             Log.d("decrypt ena", paillier!!.DecrpyStr(BigInteger(ena.toString())))
-            Toast.makeText(
-                applicationContext,
-                "decrypt ena" + paillier!!.DecrpyStr(BigInteger(ena.toString())),
+            Toast.makeText(applicationContext,"decrypt ena" + paillier!!.DecrpyStr(BigInteger(ena.toString())),
                 Toast.LENGTH_SHORT
             ).show()
 
