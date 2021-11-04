@@ -50,19 +50,39 @@ class Home : AppCompatActivity() {
         val text = findViewById<EditText>(R.id.text)
         val button = findViewById<TextView>(R.id.save_button)
 
+        val error = findViewById<TextView>(R.id.error)
+
+        val enc_text = findViewById<TextView>(R.id.e_text)
+        val dec_text = findViewById<TextView>(R.id.d_text)
+
+
         button.setOnClickListener {
-            entered_text = text.getText().toString()
+
+            entered_text = text.text.toString()
+
+            if (entered_text == "") {
+                error.text = "*Please enter some text"
+                entered_text = "Dummy"
+
+            } else {
+                error.text = ""
+
+                val ena = paillier!!.EncrypStr(entered_text, r)
+                val dec = paillier!!.DecrpyStr(BigInteger(ena.toString()))
+
+                enc_text.text = ena.toString()
+                dec_text.text = dec
+
+                Log.d("ena", ena.toString())
+
+                Log.d("decrypt ena", paillier!!.DecrpyStr(BigInteger(ena.toString())))
+            }
 
             Log.d("Entered text", entered_text)
 
             encrypted_text = paillier!!.EncrypStr(entered_text, r)
-            Toast.makeText(applicationContext, "Entered text$entered_text", Toast.LENGTH_SHORT)
-                .show()
 
             Log.d("Encrypted Text", encrypted_text.toString())
-            Toast.makeText(applicationContext, "Encrred text$encrypted_text", Toast.LENGTH_SHORT)
-                .show()
-
 
             //Operations
 
@@ -71,31 +91,6 @@ class Home : AppCompatActivity() {
                 paillier!!.DecrpyStr(BigInteger(Objects.requireNonNull(encrypted_text).toString()))
             )
 
-            Toast.makeText(
-                applicationContext,
-                "Decrypted text" + paillier!!.DecrpyStr(
-                    BigInteger(
-                        Objects.requireNonNull(encrypted_text).toString()
-                    )
-                ),
-                Toast.LENGTH_SHORT
-            ).show()
-
-
-            val ena = paillier!!.EncrypStr(entered_text, r)
-
-            Log.d("ena", ena.toString())
-            Toast.makeText(applicationContext,"ena$ena",
-                Toast.LENGTH_SHORT
-            ).show()
-
-            Log.d("decrypt ena", paillier!!.DecrpyStr(BigInteger(ena.toString())))
-            Toast.makeText(applicationContext,"decrypt ena" + paillier!!.DecrpyStr(BigInteger(ena.toString())),
-                Toast.LENGTH_SHORT
-            ).show()
-
-
         }
-
     }
 }

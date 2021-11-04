@@ -12,4 +12,5 @@
     <color name="active_text">#FFFFFF</color>
     <color name="inactive_text">#99F1F1F1</color>
     <color name="transparent">#00FFFFFF</color>
+    <color name="error">#FF7A7A</color>
 </resources>
