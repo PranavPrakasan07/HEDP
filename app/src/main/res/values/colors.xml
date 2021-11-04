@@ -10,5 +10,6 @@
 
     <color name="background">#1F1F1F</color>
     <color name="active_text">#FFFFFF</color>
-    <color name="inactive_text">#F1F1F1</color>
+    <color name="inactive_text">#99F1F1F1</color>
+    <color name="transparent">#00FFFFFF</color>
 </resources>
