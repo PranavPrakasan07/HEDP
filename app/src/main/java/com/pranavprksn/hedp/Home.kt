@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.*
+import com.pranavprksn.hedp.he.HEAdapter
 import com.pranavprksn.hedp.he.aesfor
 import com.pranavprksn.hedp.he.file
 import com.pranavprksn.hedp.he.pailier
@@ -39,8 +40,7 @@ class Home : AppCompatActivity() {
         } else {
             r = BigInteger(512, Random())
             paillier!!.KeyGeneration(512, 62)
-            val temp: Array<BigInteger>
-            temp = paillier!!.pq
+            val temp: Array<BigInteger> = paillier!!.pq
             temp[2] = BigInteger("" + r)
             temp[3] = BigInteger("" + 100 + (Math.random() * (10000 - 100 + 1)).toInt())
             fl!!.fileWrite(temp, FILENAME)
@@ -70,27 +70,16 @@ class Home : AppCompatActivity() {
                 val ena = paillier!!.EncrypStr(entered_text, r)
                 val dec = paillier!!.DecrpyStr(BigInteger(ena.toString()))
 
+//                var obj = HEAdapter()
+//                val ena = obj.encryptHE(entered_text)
+//                val dec = obj.decryptHE(BigInteger(ena.toString()))
+
                 enc_text.text = ena.toString()
                 dec_text.text = dec
 
-                Log.d("ena", ena.toString())
-
-                Log.d("decrypt ena", paillier!!.DecrpyStr(BigInteger(ena.toString())))
+//                Log.d("ena", ena.toString())
+//                Log.d("decrypt ena", paillier!!.DecrpyStr(BigInteger(ena.toString())))
             }
-
-            Log.d("Entered text", entered_text)
-
-            encrypted_text = paillier!!.EncrypStr(entered_text, r)
-
-            Log.d("Encrypted Text", encrypted_text.toString())
-
-            //Operations
-
-            Log.d(
-                "Decrypted text",
-                paillier!!.DecrpyStr(BigInteger(Objects.requireNonNull(encrypted_text).toString()))
-            )
-
         }
     }
 }
