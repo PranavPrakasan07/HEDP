@@ -8,10 +8,18 @@
     android:padding="16dp">
 
     <TextView
+        android:id="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stored Data"
+        android:layout_margin="16dp"
+        android:textSize="24sp" />
+
+    <TextView
         android:id="@+id/data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="This is a Modal BottomSheet"
+        android:text=""
         android:layout_margin="16dp"
         android:textSize="18sp" />
 

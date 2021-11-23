@@ -14,6 +14,7 @@ import java.util.*
 import com.pranavprksn.hedp.db.DBHandler
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.pranavprksn.hedp.db.DBView
+import com.pranavprksn.hedp.models.DataModel
 
 
 class Home : AppCompatActivity() {
@@ -71,6 +72,10 @@ class Home : AppCompatActivity() {
 
         view_button.setOnClickListener {
             val bottomSheet = DBView()
+
+            val dataObjects = dbHandler!!.readData()
+            bottomSheet.fillData(dataObjects)
+
             bottomSheet.show(
                 supportFragmentManager,
                 "ModalBottomSheet"

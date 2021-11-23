@@ -2,8 +2,13 @@ package com.pranavprksn.hedp.db;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.pranavprksn.hedp.models.DataModel;
+
+import java.util.ArrayList;
 
 public class DBHandler extends SQLiteOpenHelper {
 
@@ -74,6 +79,33 @@ public class DBHandler extends SQLiteOpenHelper {
         // at last we are closing our
         // database after adding database.
         db.close();
+    }
+
+
+    public ArrayList<DataModel> readData() {
+        // on below line we are creating a
+        // database for reading our database.
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // on below line we are creating a cursor with query to read data from database.
+        Cursor cursorData = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+
+        // on below line we are creating a new array list.
+        ArrayList<DataModel> dataModalArrayList = new ArrayList<>();
+
+        // moving our cursor to first position.
+        if (cursorData.moveToFirst()) {
+            do {
+                // on below line we are adding the data from cursor to our array list.
+                dataModalArrayList.add(new DataModel(cursorData.getString(1),
+                        cursorData.getString(2)));
+            } while (cursorData.moveToNext());
+            // moving our cursor to next.
+        }
+        // at last closing our cursor
+        // and returning our array list.
+        cursorData.close();
+        return dataModalArrayList;
     }
 
     @Override

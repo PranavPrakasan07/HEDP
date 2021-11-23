@@ -10,8 +10,14 @@ import androidx.annotation.Nullable;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.pranavprksn.hedp.R;
+import com.pranavprksn.hedp.models.DataModel;
+
+import java.util.ArrayList;
 
 public class DBView extends BottomSheetDialogFragment {
+
+    TextView data;
+    String dataString = "";
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable
@@ -20,10 +26,16 @@ public class DBView extends BottomSheetDialogFragment {
         View v = inflater.inflate(R.layout.db_list_view,
                 container, false);
 
-        TextView data = v.findViewById(R.id.data);
-
-
+        data = v.findViewById(R.id.data);
+        data.setText(dataString);
 
         return v;
+    }
+
+    public void fillData(ArrayList<DataModel> dataList){
+        for (DataModel dataModel: dataList){
+            dataString += dataModel.getInputText() + ":\n" + dataModel.getEncryptedText() + "\n\n";
+        }
+
     }
 }
