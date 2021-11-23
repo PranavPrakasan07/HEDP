@@ -46,10 +46,11 @@ public class DBHandler extends SQLiteOpenHelper {
         // at last we are calling a exec sql
         // method to execute above sql query
         db.execSQL(query);
+
     }
 
     // this method is use to add new course to our sqlite database.
-    public void addNewCourse(String input_text, String enc_text) {
+    public void addNewData(String input_text, String enc_text) {
 
         // on below line we are creating a variable for
         // our sqlite database and calling writable method

@@ -11,6 +11,10 @@ import com.pranavprksn.hedp.he.pailier
 import java.math.BigInteger
 import java.sql.*
 import java.util.*
+import com.pranavprksn.hedp.db.DBHandler
+
+
+
 
 class Home : AppCompatActivity() {
 
@@ -25,12 +29,21 @@ class Home : AppCompatActivity() {
     var entered_text = "email"
 
     var encrypted_text: BigInteger? = null
+    private var dbHandler: DBHandler? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
         //--------------------------------------------------------------------
+
+        // creating a new dbhandler class
+        // and passing our context to it.
+
+        dbHandler = DBHandler(this@Home)
+
+        //--------------------------------------------------------------------
+
         fl = file()
         paillier = pailier()
         if (fl!!.check(FILENAME)) {
@@ -76,6 +89,8 @@ class Home : AppCompatActivity() {
 
                 enc_text.text = ena.toString()
                 dec_text.text = dec
+
+                dbHandler!!.addNewData(dec_text.text as String?, enc_text.text as String)
 
 //                Log.d("ena", ena.toString())
 //                Log.d("decrypt ena", paillier!!.DecrpyStr(BigInteger(ena.toString())))
