@@ -1,5 +1,6 @@
 package com.pranavprksn.hedp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -13,6 +14,7 @@ import java.sql.*
 import java.util.*
 import com.pranavprksn.hedp.db.DBHandler
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.pranavprksn.hedp.activities.LoginActivity
 import com.pranavprksn.hedp.db.DBView
 import com.pranavprksn.hedp.models.DataModel
 
@@ -63,12 +65,17 @@ class Home : AppCompatActivity() {
 
         val text = findViewById<EditText>(R.id.text)
         val button = findViewById<TextView>(R.id.save_button)
+        val chatButton = findViewById<ImageButton>(R.id.chat_button)
         val view_button = findViewById<TextView>(R.id.view_button)
 
         val error = findViewById<TextView>(R.id.error)
 
         val enc_text = findViewById<TextView>(R.id.e_text)
         val dec_text = findViewById<TextView>(R.id.d_text)
+
+        chatButton.setOnClickListener {
+            startActivity(Intent(applicationContext, LoginActivity::class.java))
+        }
 
         view_button.setOnClickListener {
             val bottomSheet = DBView()

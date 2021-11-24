@@ -13,6 +13,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HEDP">
         <activity
+            android:name=".activities.SignupActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ChatHome"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity

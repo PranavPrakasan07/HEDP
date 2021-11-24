@@ -4,10 +4,14 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Hacktoberfest/HEDP/app/src/main/res/drawable/button_bg.xml" value="0.26614583333333336" />
+        <entry key="..\:/Hacktoberfest/HEDP/app/src/main/res/layout/activity_chat_home.xml" value="0.18070652173913043" />
         <entry key="..\:/Hacktoberfest/HEDP/app/src/main/res/layout/activity_home.xml" value="0.20153985507246377" />
+        <entry key="..\:/Hacktoberfest/HEDP/app/src/main/res/layout/activity_login.xml" value="0.18070652173913043" />
         <entry key="..\:/Hacktoberfest/HEDP/app/src/main/res/layout/activity_main.xml" value="0.18614130434782608" />
+        <entry key="..\:/Hacktoberfest/HEDP/app/src/main/res/layout/activity_sign_up.xml" value="0.18070652173913043" />
         <entry key="..\:/Hacktoberfest/HEDP/app/src/main/res/layout/activity_splash_screen.xml" value="0.20153985507246377" />
         <entry key="..\:/Hacktoberfest/HEDP/app/src/main/res/layout/db_list_view.xml" value="0.18614130434782608" />
+        <entry key="..\:/Hacktoberfest/HEDP/app/src/main/res/layout/ic_google_icon.xml" value="0.12708333333333333" />
       </map>
     </option>
   </component>

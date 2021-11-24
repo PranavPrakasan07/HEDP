@@ -7,6 +7,7 @@
     android:background="@color/background"
     tools:context=".Home">
 
+
     <TextView
         android:id="@+id/header"
         android:layout_width="wrap_content"
@@ -90,17 +91,17 @@
         android:id="@+id/save_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/barrier_l"
-        android:background="@drawable/button_bg"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:paddingTop="4dp"
-        android:paddingBottom="4dp"
-        android:fontFamily="@font/poppins"
-        android:textColor="@color/background"
         android:layout_marginTop="32dp"
+        android:background="@drawable/button_bg"
+        android:fontFamily="@font/poppins"
+        android:paddingStart="16dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="4dp"
         android:text="Save"
+        android:textColor="@color/background"
         android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@id/barrier_l"
         app:layout_constraintTop_toBottomOf="@+id/error"
         tools:layout_editor_absoluteX="47dp" />
 
@@ -108,17 +109,17 @@
         android:id="@+id/view_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@id/barrier_r"
-        android:background="@drawable/button_bg"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:paddingTop="4dp"
-        android:paddingBottom="4dp"
-        android:fontFamily="@font/poppins"
-        android:textColor="@color/background"
         android:layout_marginTop="32dp"
+        android:background="@drawable/button_bg"
+        android:fontFamily="@font/poppins"
+        android:paddingStart="16dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="4dp"
         android:text="View"
+        android:textColor="@color/background"
         android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@id/barrier_r"
         app:layout_constraintTop_toBottomOf="@+id/error"
         tools:layout_editor_absoluteX="47dp" />
 
@@ -142,8 +143,8 @@
         android:fontFamily="@font/poppins"
         android:text="Encrypted Data"
         android:textColor="@color/inactive_text"
-        app:layout_constraintEnd_toEndOf="@id/barrier_r"
         android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@id/barrier_r"
         app:layout_constraintStart_toStartOf="@id/barrier_l"
         app:layout_constraintTop_toBottomOf="@+id/label2" />
 
@@ -172,5 +173,18 @@
         app:layout_constraintEnd_toEndOf="@id/barrier_r"
         app:layout_constraintStart_toStartOf="@id/barrier_l"
         app:layout_constraintTop_toBottomOf="@+id/label3" />
+
+    <ImageButton
+        android:id="@+id/chat_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="0dp"
+        android:backgroundTint="@color/transparent"
+        android:padding="8dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="@id/barrier_r"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_chat_icon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
