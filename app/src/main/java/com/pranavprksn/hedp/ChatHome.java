@@ -48,11 +48,11 @@ public class ChatHome extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_chat_home);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        Objects.requireNonNull(getSupportActionBar()).setTitle("");
+//        Objects.requireNonNull(getSupportActionBar()).setTitle("");
 
         profile_image = findViewById(R.id.profile_image);
         username = findViewById(R.id.username);
@@ -68,13 +68,12 @@ public class ChatHome extends AppCompatActivity {
                 assert user != null;
                 username.setText(user.getUsername());
 
-                if (user.getImageURL().equals("default")) {
-                    profile_image.setImageResource(R.mipmap.ic_launcher);
-                } else {
-
-                    //change this
-                    Glide.with(getApplicationContext()).load(user.getImageURL()).into(profile_image);
-                }
+//                if (user.getImageURL().equals("default")) {
+//                    profile_image.setImageResource(R.mipmap.ic_launcher);
+//                } else {
+//                    //change this
+//                    Glide.with(getApplicationContext()).load(user.getImageURL()).into(profile_image);
+//                }
             }
 
             @Override

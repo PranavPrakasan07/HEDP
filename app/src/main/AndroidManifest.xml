@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HEDP">
         <activity
+            android:name=".activities.MessagesActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.SignupActivity"
             android:exported="false" />
         <activity

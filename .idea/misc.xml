@@ -3,19 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Hacktoberfest/HEDP/app/src/main/res/drawable/background_left.xml" value="0.14322916666666666" />
+        <entry key="..\:/Hacktoberfest/HEDP/app/src/main/res/drawable/background_right.xml" value="0.14322916666666666" />
         <entry key="..\:/Hacktoberfest/HEDP/app/src/main/res/drawable/button_bg.xml" value="0.26614583333333336" />
         <entry key="..\:/Hacktoberfest/HEDP/app/src/main/res/layout/activity_chat_home.xml" value="0.18070652173913043" />
         <entry key="..\:/Hacktoberfest/HEDP/app/src/main/res/layout/activity_home.xml" value="0.20153985507246377" />
         <entry key="..\:/Hacktoberfest/HEDP/app/src/main/res/layout/activity_login.xml" value="0.18070652173913043" />
         <entry key="..\:/Hacktoberfest/HEDP/app/src/main/res/layout/activity_main.xml" value="0.18614130434782608" />
+        <entry key="..\:/Hacktoberfest/HEDP/app/src/main/res/layout/activity_messages.xml" value="0.12708333333333333" />
         <entry key="..\:/Hacktoberfest/HEDP/app/src/main/res/layout/activity_sign_up.xml" value="0.18070652173913043" />
         <entry key="..\:/Hacktoberfest/HEDP/app/src/main/res/layout/activity_splash_screen.xml" value="0.20153985507246377" />
+        <entry key="..\:/Hacktoberfest/HEDP/app/src/main/res/layout/chat_item_left.xml" value="0.12708333333333333" />
+        <entry key="..\:/Hacktoberfest/HEDP/app/src/main/res/layout/chat_item_right.xml" value="0.12708333333333333" />
         <entry key="..\:/Hacktoberfest/HEDP/app/src/main/res/layout/db_list_view.xml" value="0.18614130434782608" />
         <entry key="..\:/Hacktoberfest/HEDP/app/src/main/res/layout/fragment_chat.xml" value="0.12708333333333333" />
         <entry key="..\:/Hacktoberfest/HEDP/app/src/main/res/layout/fragment_profile.xml" value="0.12708333333333333" />
         <entry key="..\:/Hacktoberfest/HEDP/app/src/main/res/layout/fragment_users.xml" value="0.12708333333333333" />
         <entry key="..\:/Hacktoberfest/HEDP/app/src/main/res/layout/ic_google_icon.xml" value="0.12708333333333333" />
-        <entry key="..\:/Hacktoberfest/HEDP/app/src/main/res/layout/user_item.xml" value="0.18070652173913043" />
+        <entry key="..\:/Hacktoberfest/HEDP/app/src/main/res/layout/user_item.xml" value="0.2" />
         <entry key="..\:/Hacktoberfest/HEDP/app/src/main/res/menu/menu.xml" value="0.25" />
       </map>
     </option>
