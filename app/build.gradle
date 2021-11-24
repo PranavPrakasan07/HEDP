@@ -50,5 +50,7 @@ dependencies {
     // CircleImageView
     implementation 'de.hdodenhof:circleimageview:2.2.0'
 
+    // GoogleSignin
+    implementation 'com.google.android.gms:play-services-auth:19.2.0'
 
 }
