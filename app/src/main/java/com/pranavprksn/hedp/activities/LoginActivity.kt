@@ -21,11 +21,12 @@ import com.pranavprksn.hedp.ChatHome
 import com.pranavprksn.hedp.R
 
 class LoginActivity : AppCompatActivity() {
-    var loginButton: AppCompatButton? = null
-    var signupLink: TextView? = null
-    var email: EditText? = null
-    var password: EditText? = null
-    var mGoogleSignInClient: GoogleSignInClient? = null
+    private var loginButton: AppCompatButton? = null
+    private var signupLink: TextView? = null
+    private var email: EditText? = null
+    private var password: EditText? = null
+    private var mGoogleSignInClient: GoogleSignInClient? = null
+
     public override fun onStart() {
         super.onStart()
         val currentUser = auth!!.currentUser
@@ -73,7 +74,7 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-        loginButton?.setOnClickListener(View.OnClickListener { v: View? ->
+        loginButton?.setOnClickListener { v: View? ->
             val email_text = email?.text.toString()
             val password_text = password?.text.toString()
             if (email_text == "") {
@@ -85,15 +86,15 @@ class LoginActivity : AppCompatActivity() {
             if (!(email_text == "" || password_text == "")) {
                 login_user(email_text, password_text)
             }
-        })
+        }
 
-        signupLink?.setOnClickListener(View.OnClickListener {
+        signupLink?.setOnClickListener {
             startActivity(
                 Intent(
                     applicationContext, SignupActivity::class.java
                 )
             )
-        })
+        }
     }
 
     private fun login_user(email_text: String, password_text: String) {
