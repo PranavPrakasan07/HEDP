@@ -29,10 +29,10 @@ class LoginActivity : AppCompatActivity() {
 
     public override fun onStart() {
         super.onStart()
-        val currentUser = auth!!.currentUser
-        if (currentUser != null) {
-            startActivity(Intent(applicationContext, ChatHome::class.java))
-        }
+//        val currentUser = auth!!.currentUser
+//        if (currentUser != null) {
+//            startActivity(Intent(applicationContext, ChatHome::class.java))
+//        }
     }
 
     public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

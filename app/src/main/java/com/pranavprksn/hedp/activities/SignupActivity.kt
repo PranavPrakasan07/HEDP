@@ -17,9 +17,12 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.pranavprksn.hedp.ChatHome
+import com.pranavprksn.hedp.MainActivity
 import com.pranavprksn.hedp.R
 import java.util.*
 
@@ -33,6 +36,7 @@ class SignupActivity : AppCompatActivity() {
     private var auth: FirebaseAuth? = null
     private var db = FirebaseFirestore.getInstance()
     private var user_details: MutableMap<String, String?> = HashMap()
+    private var reference: DatabaseReference? = null
 
     public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -44,6 +48,7 @@ class SignupActivity : AppCompatActivity() {
                 // Google Sign In was successful, authenticate with Firebase
                 val account = task.getResult(ApiException::class.java)!!
                 Log.d("TAG", "firebaseAuthWithGoogle:" + account.id)
+                addUserToDB()
                 firebaseAuthWithGoogle(account.idToken)
             } catch (e: ApiException) {
                 // Google Sign In failed, update UI appropriately
@@ -57,6 +62,7 @@ class SignupActivity : AppCompatActivity() {
         setContentView(R.layout.activity_sign_up)
         signupButton = findViewById(R.id.signup_button)
         loginLink = findViewById(R.id.login_link)
+
         loginLink?.setOnClickListener(View.OnClickListener {
             startActivity(
                 Intent(
@@ -64,6 +70,7 @@ class SignupActivity : AppCompatActivity() {
                 )
             )
         })
+
         email = findViewById(R.id.email)
         password = findViewById(R.id.password)
         contact = findViewById(R.id.contact_number)
@@ -75,12 +82,14 @@ class SignupActivity : AppCompatActivity() {
             .requestIdToken("324570600050-mmlibt48s2ij5ga5e8cm8m60nmktoubb.apps.googleusercontent.com")
             .requestEmail()
             .build()
+
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
         findViewById<View>(R.id.google_button).setOnClickListener { view: View ->
             if (view.id == R.id.google_button) {
                 signIn()
             }
         }
+
         signupButton?.setOnClickListener(View.OnClickListener { v: View? ->
             val email_text = email?.text.toString()
             val password_text = password?.text.toString()
@@ -112,6 +121,9 @@ class SignupActivity : AppCompatActivity() {
                     val sharedPreferences = getSharedPreferences("VERIFIED", MODE_PRIVATE)
                     val isVerified = sharedPreferences.getBoolean("mobile_verified", false)
                     val mobile_number = sharedPreferences.getString("mobile_number", null)
+
+                    user_details["email"]?.let { addUserToDB() };
+
                     if (isVerified) {
                         user_details["mobile"] = mobile_number
                     }
@@ -145,7 +157,30 @@ class SignupActivity : AppCompatActivity() {
         startActivityForResult(signInIntent, RC_SIGN_IN)
     }
 
-    private fun firebaseAuthWithGoogle(idToken: String) {
+
+    private fun addUserToDB() {
+
+        val firebaseUser = auth!!.currentUser!!
+        val userid = firebaseUser.uid
+        val username = firebaseUser.displayName.toString()
+        reference = FirebaseDatabase.getInstance().getReference("Users").child(userid)
+        val hashMap: HashMap<String, String> = HashMap()
+        hashMap["id"] = userid
+        hashMap["username"] = firebaseUser.email.toString()
+        hashMap["imageURL"] = firebaseUser.photoUrl.toString()
+        hashMap["status"] = "offline"
+        hashMap["search"] = username.lowercase(Locale.getDefault())
+
+        reference!!.setValue(hashMap)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    Log.d("DBData", "Stored to Realtime DB")
+                }
+            }
+
+    }
+
+    private fun firebaseAuthWithGoogle(idToken: String?) {
         val credential = GoogleAuthProvider.getCredential(idToken, null)
         auth!!.signInWithCredential(credential)
             .addOnCompleteListener(this) { task: Task<AuthResult?> ->
