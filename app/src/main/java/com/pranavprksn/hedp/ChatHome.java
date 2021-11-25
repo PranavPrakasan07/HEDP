@@ -52,7 +52,7 @@ public class ChatHome extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-//        Objects.requireNonNull(getSupportActionBar()).setTitle("");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("");
 
         profile_image = findViewById(R.id.profile_image);
         username = findViewById(R.id.username);
@@ -68,12 +68,12 @@ public class ChatHome extends AppCompatActivity {
                 assert user != null;
                 username.setText(user.getUsername());
 
-//                if (user.getImageURL().equals("default")) {
-//                    profile_image.setImageResource(R.mipmap.ic_launcher);
-//                } else {
-//                    //change this
-//                    Glide.with(getApplicationContext()).load(user.getImageURL()).into(profile_image);
-//                }
+                if (user.getImageURL().equals("default")) {
+                    profile_image.setImageResource(R.mipmap.ic_launcher);
+                } else {
+                    //change this
+                    Glide.with(getApplicationContext()).load(user.getImageURL()).into(profile_image);
+                }
             }
 
             @Override
@@ -144,8 +144,8 @@ public class ChatHome extends AppCompatActivity {
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
 
-        private ArrayList<Fragment> fragments;
-        private ArrayList<String> titles;
+        private final ArrayList<Fragment> fragments;
+        private final ArrayList<String> titles;
 
         ViewPagerAdapter(FragmentManager fm) {
             super(fm);

@@ -166,7 +166,7 @@ class SignupActivity : AppCompatActivity() {
         reference = FirebaseDatabase.getInstance().getReference("Users").child(userid)
         val hashMap: HashMap<String, String> = HashMap()
         hashMap["id"] = userid
-        hashMap["username"] = firebaseUser.email.toString()
+        hashMap["username"] = username
         hashMap["imageURL"] = firebaseUser.photoUrl.toString()
         hashMap["status"] = "offline"
         hashMap["search"] = username.lowercase(Locale.getDefault())
