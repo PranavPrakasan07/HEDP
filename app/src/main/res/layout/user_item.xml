@@ -20,6 +20,7 @@
         android:layout_marginStart="10dp"
         android:layout_toEndOf="@id/profile_image"
         android:text="username"
+        android:textColor="@color/active_text"
         android:textSize="18sp" />
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -58,6 +59,6 @@
         android:layout_toEndOf="@id/profile_image"
         android:maxLines="1"
         android:paddingTop="5dp"
-        android:textColor="@color/background" />
+        android:textColor="@color/inactive_text" />
 
 </RelativeLayout>

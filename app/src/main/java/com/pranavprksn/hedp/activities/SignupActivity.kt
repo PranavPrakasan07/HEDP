@@ -48,7 +48,6 @@ class SignupActivity : AppCompatActivity() {
                 // Google Sign In was successful, authenticate with Firebase
                 val account = task.getResult(ApiException::class.java)!!
                 Log.d("TAG", "firebaseAuthWithGoogle:" + account.id)
-                addUserToDB()
                 firebaseAuthWithGoogle(account.idToken)
             } catch (e: ApiException) {
                 // Google Sign In failed, update UI appropriately
@@ -122,7 +121,7 @@ class SignupActivity : AppCompatActivity() {
                     val isVerified = sharedPreferences.getBoolean("mobile_verified", false)
                     val mobile_number = sharedPreferences.getString("mobile_number", null)
 
-                    user_details["email"]?.let { addUserToDB() };
+//                    user_details["email"]?.let { addUserToDB() };
 
                     if (isVerified) {
                         user_details["mobile"] = mobile_number
@@ -218,6 +217,8 @@ class SignupActivity : AppCompatActivity() {
                                 "Failed document write"
                             )
                         }
+
+                    addUserToDB()
                     startActivity(Intent(applicationContext, ChatHome::class.java))
                 } else {
                     // If sign in fails, display a message to the user.

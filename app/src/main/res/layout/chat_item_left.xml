@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/transparent"
     android:padding="8dp">
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -19,6 +20,7 @@
         android:layout_toEndOf="@id/profile_image"
         android:background="@drawable/background_left"
         android:padding="8dp"
+        android:textColor="@color/active_text"
         android:text="hello"
         android:textSize="18sp" />
 
@@ -27,6 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/show_message"
+        android:textColor="@color/inactive_text"
         android:visibility="gone" />
 
 </RelativeLayout>
