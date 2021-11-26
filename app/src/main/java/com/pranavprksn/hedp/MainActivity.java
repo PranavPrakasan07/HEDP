@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import com.pranavprksn.hedp.activities.LoginActivity;
 import com.pranavprksn.hedp.db.DBHandler;
+import com.pranavprksn.hedp.he.HED;
 import com.pranavprksn.hedp.models.DataModel;
 
 import java.util.ArrayList;
@@ -26,6 +27,10 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(MainActivity.this, dataObject.toString(), Toast.LENGTH_SHORT).show();
 
         startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+
+        HED hed = new HED();
+
+        String decr = HED.encryptHE("entered_text");
 
     }
 }

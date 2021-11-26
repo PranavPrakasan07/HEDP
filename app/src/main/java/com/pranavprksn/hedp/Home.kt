@@ -76,6 +76,12 @@ class Home : AppCompatActivity() {
 
         view_button.setOnClickListener {
 
+            val hed = HED()
+            val encryptedWithClass = HED.encryptHE("entered_text")
+            val decryptedWithClass = HED.decryptHE(encryptedWithClass)
+            Log.d("ENC-FROM-FUNC", encryptedWithClass);
+            Log.d("DEC-FROM-FUNC", decryptedWithClass);
+
             val bottomSheet = DBView()
 
             val dataObjects = dbHandler!!.readData()
@@ -98,29 +104,15 @@ class Home : AppCompatActivity() {
             } else {
                 error.text = ""
 
-                val hed = HED()
-
                 val ena = paillier!!.EncrypStr(entered_text, r)
 
-//                val encFromClass= hed.encryptInput(entered_text)
-
-//                Log.d("ENC-FROM-FUNC", encFromClass.toString());
-
                 val dec = paillier!!.DecrpyStr(BigInteger(ena.toString()))
-
-//                Log.d("DEC-FROM-FUNC", hed.decryptInput(encFromClass).toString());
-
-//                var obj = HEAdapter()
-//                val ena = obj.encryptHE(entered_text)
-//                val dec = obj.decryptHE(BigInteger(ena.toString()))
 
                 enc_text.text = ena.toString()
                 dec_text.text = dec
 
                 dbHandler!!.addNewData(dec_text.text as String?, enc_text.text as String)
 
-//                Log.d("ena", ena.toString())
-//                Log.d("decrypt ena", paillier!!.DecrpyStr(BigInteger(ena.toString())))
             }
         }
     }

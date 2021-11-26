@@ -2,6 +2,7 @@ package com.pranavprksn.hedp.adapters;
 
 import android.content.Context;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.pranavprksn.hedp.R;
+import com.pranavprksn.hedp.he.HED;
 import com.pranavprksn.hedp.models.Chat;
 
 import java.util.List;
@@ -52,6 +54,15 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.ViewHo
     public void onBindViewHolder(@NonNull MessagesAdapter.ViewHolder holder, int position) {
 
         Chat chat = mChat.get(position);
+
+        // Decryption starts here
+//        HED hed = new HED();
+//        Log.d("from cloud for decr : ", chat.getMessage());
+//
+//        String decryptedMessage = HED.decryptHE(chat.getMessage());
+//
+//        Log.d("decrypted : ", decryptedMessage);
+        // Decryption ends here
 
         holder.show_message.setText(chat.getMessage());
 

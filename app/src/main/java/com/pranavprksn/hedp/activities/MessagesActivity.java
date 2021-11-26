@@ -14,6 +14,7 @@ import com.pranavprksn.hedp.R;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -30,6 +31,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.pranavprksn.hedp.adapters.MessagesAdapter;
+import com.pranavprksn.hedp.he.HED;
 import com.pranavprksn.hedp.models.Chat;
 import com.pranavprksn.hedp.models.Users;
 
@@ -177,6 +179,15 @@ public class MessagesActivity extends AppCompatActivity {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
 
         HashMap<String, Object> hashMap = new HashMap<>();
+
+        // Encryption starts here
+//        HED hed = new HED();
+//
+//        String encryptedMessage = HED.encryptHE(message);
+//        Log.d("to cloud for encr : ", encryptedMessage);
+
+        //Encryption ends here
+
         hashMap.put("sender", sender);
         hashMap.put("receiver", receiver);
         hashMap.put("message", message);
