@@ -10,6 +10,7 @@
 
     <color name="background">#1F1F1F</color>
     <color name="foreground_primary">#2E2E2E</color>
+    <color name="foreground_secondary">#3D3D3D</color>
 
     <color name="active_text">#FFFFFF</color>
     <color name="inactive_text">#99F1F1F1</color>

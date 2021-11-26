@@ -26,5 +26,6 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(MainActivity.this, dataObject.toString(), Toast.LENGTH_SHORT).show();
 
         startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+
     }
 }

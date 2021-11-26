@@ -168,8 +168,6 @@ public class ChatHome extends AppCompatActivity {
             titles.add(title);
         }
 
-        // Ctrl + O
-
         @Nullable
         @Override
         public CharSequence getPageTitle(int position) {

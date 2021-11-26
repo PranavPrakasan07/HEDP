@@ -109,6 +109,11 @@ public class MessagesActivity extends AppCompatActivity {
             public void onClick(View view) {
                 notify = true;
                 String msg = text_send.getText().toString();
+
+                // Test encryption
+
+//                String encMessage = paillier.EncrypStr(msg, r);
+
                 if (!msg.equals("")){
                     sendMessage(fuser.getUid(), userid, msg);
                 } else {

@@ -140,6 +140,7 @@
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="64dp"
         android:background="#00FFFFFF"
+        android:visibility="invisible"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

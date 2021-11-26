@@ -10,7 +10,8 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/background">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -40,9 +41,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/background"
-            app:tabIndicatorColor="#fff"
-            app:tabSelectedTextColor="#fff"
-            app:tabTextColor="#fff" />
+            app:tabIndicatorColor="@color/active_text"
+            android:layout_margin="8dp"
+            app:tabSelectedTextColor="@color/active_text"
+            app:tabTextColor="@color/inactive_text" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -50,6 +52,7 @@
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="8dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
 </LinearLayout>

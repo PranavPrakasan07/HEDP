@@ -4,12 +4,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/background"
     android:padding="10dp">
+
+    <RelativeLayout
+        android:id="@+id/item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_image"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_centerVertical="true"
         android:src="@mipmap/ic_launcher" />
 
     <TextView
@@ -60,5 +67,13 @@
         android:maxLines="1"
         android:paddingTop="5dp"
         android:textColor="@color/inactive_text" />
+</RelativeLayout>
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/item"
+        android:layout_marginTop="14dp"
+        android:background="@color/foreground_primary" />
 
 </RelativeLayout>

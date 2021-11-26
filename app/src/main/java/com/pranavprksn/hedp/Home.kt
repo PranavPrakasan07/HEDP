@@ -5,10 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.*
-import com.pranavprksn.hedp.he.HEAdapter
-import com.pranavprksn.hedp.he.aesfor
-import com.pranavprksn.hedp.he.file
-import com.pranavprksn.hedp.he.pailier
 import java.math.BigInteger
 import java.sql.*
 import java.util.*
@@ -16,6 +12,7 @@ import com.pranavprksn.hedp.db.DBHandler
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.pranavprksn.hedp.activities.LoginActivity
 import com.pranavprksn.hedp.db.DBView
+import com.pranavprksn.hedp.he.*
 import com.pranavprksn.hedp.models.DataModel
 
 
@@ -78,6 +75,7 @@ class Home : AppCompatActivity() {
         }
 
         view_button.setOnClickListener {
+
             val bottomSheet = DBView()
 
             val dataObjects = dbHandler!!.readData()
@@ -100,8 +98,17 @@ class Home : AppCompatActivity() {
             } else {
                 error.text = ""
 
+                val hed = HED()
+
                 val ena = paillier!!.EncrypStr(entered_text, r)
+
+//                val encFromClass= hed.encryptInput(entered_text)
+
+//                Log.d("ENC-FROM-FUNC", encFromClass.toString());
+
                 val dec = paillier!!.DecrpyStr(BigInteger(ena.toString()))
+
+//                Log.d("DEC-FROM-FUNC", hed.decryptInput(encFromClass).toString());
 
 //                var obj = HEAdapter()
 //                val ena = obj.encryptHE(entered_text)
