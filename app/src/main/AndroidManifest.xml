@@ -24,9 +24,10 @@
         <activity
             android:name=".ChatHome"
             android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".localcompress.MainActivity"-->
+<!--            android:exported="false" />-->
+
         <activity
             android:name=".Home"
             android:exported="false" />

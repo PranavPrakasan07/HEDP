@@ -68,6 +68,10 @@ public class pailier {
         }
     }
 
+    public void test(){
+        BigInteger b = encryptStringParallel("", BigInteger.ONE);
+    }
+
     public BigInteger Encryption(BigInteger m, BigInteger r) {
         return g.modPow(m, nsquare).multiply(r.modPow(n, nsquare)).mod(nsquare);
     }
@@ -88,6 +92,46 @@ public class pailier {
         }
         BigInteger enc = Encryption(num, r);
         return enc;
+    }
+
+
+    public BigInteger encryptStringParallel(String st, BigInteger r) {
+
+        int splitLength = st.length() / 4 ;
+
+        ThreadSplit s1 = new ThreadSplit(st.substring(0,splitLength));
+        ThreadSplit s2 = new ThreadSplit(st.substring(splitLength+1,2*splitLength));
+        ThreadSplit s3 = new ThreadSplit(st.substring(2*splitLength+1,3*splitLength));
+        ThreadSplit s4 = new ThreadSplit(st.substring(3*splitLength+1));
+
+        Thread t1 = new Thread(s1);
+        Thread t2 = new Thread(s2);
+        Thread t3 = new Thread(s3);
+        Thread t4 = new Thread(s4);
+
+        t1.start();
+        t2.start();
+        t3.start();
+        t4.start();
+
+        int temp = st.charAt(0);
+        // System.out.println(temp);
+        BigInteger num = new BigInteger(String.valueOf(temp));
+
+        for (int i = 1; i < st.length(); i++) {
+
+            temp = st.charAt(i);
+            // System.out.println(temp);
+
+            //num = num.multiply(BigInteger.valueOf(1000)).add(BigInteger.valueOf(temp));
+            // System.out.println("num:" + num);
+
+        }
+        // System.out.println("num:" + num);
+
+        System.out.println("end of loop");
+
+        return BigInteger.ONE;//encryption(num, r);
     }
 
     public String DecrpyStr(BigInteger num) {
