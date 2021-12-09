@@ -99,10 +99,10 @@ public class pailier {
 
         int splitLength = st.length() / 4 ;
 
-        ThreadSplit s1 = new ThreadSplit(st.substring(0,splitLength));
-        ThreadSplit s2 = new ThreadSplit(st.substring(splitLength+1,2*splitLength));
-        ThreadSplit s3 = new ThreadSplit(st.substring(2*splitLength+1,3*splitLength));
-        ThreadSplit s4 = new ThreadSplit(st.substring(3*splitLength+1));
+        ThreadSplit s1 = new ThreadSplit(st.substring(0,splitLength), 1);
+        ThreadSplit s2 = new ThreadSplit(st.substring(splitLength+1,2*splitLength), 2);
+        ThreadSplit s3 = new ThreadSplit(st.substring(2*splitLength+1,3*splitLength), 3);
+        ThreadSplit s4 = new ThreadSplit(st.substring(3*splitLength+1), 4);
 
         Thread t1 = new Thread(s1);
         Thread t2 = new Thread(s2);
@@ -113,6 +113,17 @@ public class pailier {
         t2.start();
         t3.start();
         t4.start();
+
+        try {
+            t1.join();
+            t2.join();
+            t3.join();
+            t4.join();
+        } catch (InterruptedException e) {
+            Log.d("TAG", e.toString());
+        }finally {
+            Log.d("TAG", "End");
+        }
 
         int temp = st.charAt(0);
         // System.out.println(temp);

@@ -6,12 +6,13 @@ import java.util.HashMap;
 public class ThreadSplit implements Runnable{
 
     private String inputText;
+    private int threadNumber = 0;
 
-    HashMap<String,BigInteger> map=new HashMap<>();
+    HashMap<Integer,BigInteger> map=new HashMap<>();
 
-
-    ThreadSplit(String inputText){
+    ThreadSplit(String inputText, int number){
         this.inputText = inputText;
+        this.threadNumber = number;
     }
 
     @Override
@@ -27,5 +28,8 @@ public class ThreadSplit implements Runnable{
 
             num = num.multiply(BigInteger.valueOf(1000)).add(BigInteger.valueOf(temp));
         }
+
+        map.put(this.threadNumber, num);
+
     }
 }
